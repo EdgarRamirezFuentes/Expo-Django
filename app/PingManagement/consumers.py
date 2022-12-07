@@ -1,5 +1,6 @@
 import json
 from random import randint
+from time import sleep
 import pingparsing
 from PingManagement.serializers import PingSerializer
 from channels.generic.websocket import WebsocketConsumer
@@ -12,16 +13,15 @@ class GraphConsumer(WebsocketConsumer):
         transmitter = pingparsing.PingTransmitter()
 
         transmitter.destination = "8.8.8.8"
-        transmitter.count = "10"
+        transmitter.count = 5
 
-        result = ping_parser.parse(transmitter.ping()).as_dict()
-
-        serializer = PingSerializer(data=result)
-        serializer.is_valid(raise_exception=True)
-
-        serializer.save()
-        
-        return json.dumps(result)
+        for i in range(10):
+            result = ping_parser.parse(transmitter.ping()).as_dict()
+            serializer = PingSerializer(data=result)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            self.send(json.dumps(serializer.data))
+            
 
        
 
