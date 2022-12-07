@@ -12,7 +12,3 @@ urlpatterns = [
     path('', include(router.urls)),
     path('make-ping/<destination>/<int:count>/', views.PinggerView.as_view())
 ]
-
-ws_urlpatterns = [
-    path('ws/graph/',GraphConsumer)
-]

@@ -2,3 +2,4 @@ django
 djangorestframework
 pingparsing
 psycopg2
+channels
