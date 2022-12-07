@@ -64,8 +64,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'NewtworkAdmin.urls'
 
-'''
-NOT USED FOR API DEVELOPMENT
 
 TEMPLATES = [
     {
@@ -82,7 +80,6 @@ TEMPLATES = [
         },
     },
 ]
-'''
 
 WSGI_APPLICATION = 'NewtworkAdmin.wsgi.application'
 
@@ -90,8 +87,6 @@ WSGI_APPLICATION = 'NewtworkAdmin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-''' 
-DEFAULT DB CONFIG 
 
 DATABASES = {
     'default': {
@@ -99,8 +94,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -110,6 +105,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),
     }
 }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
